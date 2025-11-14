@@ -1,0 +1,1037 @@
+$ EZ-EDS Version 3.27.1.20191218 Generated Electronic Data Sheet
+
+$ ****************************************************************************
+$ 								METTLER TOLEDO
+$ ****************************************************************************
+$  
+$ Product: M800 Premium
+$  
+$ (c) Copyright 2019 Mettler-Toledo AG. All Rights Reserved.
+$  
+$ Author: Vincent Hu
+$ Date:   04.19.2019
+$  
+$ ****************************************************************************
+$  
+$ ATTENTION:
+$ Changes in this file can cause configuration or communication problems.
+$  
+$ ****************************************************************************
+$  
+$ Changes:
+$ Version  Date       Name   		Description
+$ 1.00      04.19.2019 Vincent Hu 	Initial Version
+$ 1.01      11.18.2019 Vincent Hu   Add 4 channel parameters
+$ 1.02      12.05.2019 Vincent Hu   Add EDS AOP description
+$ 1.03      12.18.2019 Vincent Hu   Change 1/2 Channel Block output size from 12 to 16, 1/2 connection 0--->T
+$ 1.04      12.20.2019 Vincent Hu   Change Device MinRev to 2: this Rev should be released
+$ 1.05      01.01.2020 Vincent Hu   Change file name to v1.2 to match the device version(v1.2)
+$ ****************************************************************************
+
+[File]
+        DescText = "EDS-File for M800 Transmitter";
+        CreateDate = 01-07-2020;
+        CreateTime = 09:05:34;
+        ModDate = 01-07-2020;
+        ModTime = 09:05:35;
+        Revision = 1.2;
+        HomeURL = "www.mt.com";
+        1_IOC_Details_License = 0x49F9A297;
+
+[Device]
+        VendCode = 666;
+        VendName = "METTLER TOLEDO";
+        ProdType = 12;
+        ProdTypeStr = "Communications Adapter";
+        ProdCode = 2048;
+        MajRev = 1;
+        MinRev = 2;
+        ProdName = "M800";
+        Catalog = "MT-M800 1 Port";
+        Icon = "EDS-029B-0800-M800 EIP.ico";
+        IconContents =
+                "Qk02DAAAAAAAADYAAAAoAAAAIAAAACAAAAABABgAAAAAAAAMAADEDgAAxA4A"
+                "AAAAAAAAAAAA/v//+P769vn2+/f69/b3+fn59/f38/b28/j38/j49Pj48vb3"
+                "9Pb29fj49Pb29Pf29ff39vb29PP19vb49/b39/b29/j29vn19vf19/f0+vn3"
+                "/Pv49/v09/759v77/v7/////4u3nwMjDtbq4mp2bl5WUkoyLkIWFk4eHjomG"
+                "koyKlIuKlIyLl4+NmJCNkZGNk5WSlZWSlJOQk5KPj42KkImKlImQlYuSj4iO"
+                "lZCWm5mcrqyvxMnF4unm+P38/f39////3OzmxcrFuba1ra+tnqKfnaShpa2q"
+                "nqelqaqmq62pq62qqaypq66rrK+srK6rq62qq6ypqaqnqquoqqupqqmopqKj"
+                "o6KjoqGioKKfo6ejsbSxv8nI1N7c/v//////////1OHbk5yZsrKzvb6/wsHB"
+                "xcTEw8DAx8PFxsLEycXHxsLEw8DBxMLCxMHCxcHCxcHBx8PFycPGyMPFyMLG"
+                "xMPGwcTDvsDAx8jIxMLByMTDnJaTfo6M2+no9/3//f7+////zMzJc3pyeYR7"
+                "097VxtLJvMnAxtPKu8nAvdDHv8/Gvc7Cv8/BwdHCv9C+wtLCwNDCvs3AvM3C"
+                "ucvAus3CvcvExc7KwcjGwsjGxcnJycvOaWxwfnl45efm/v///v//////59/f"
+                "oZiMt62cuaqbwa6fvqaYup6RxKOXxpqJw5eEvZF8vpF2wJByvI1tw4tywYlx"
+                "wYl0w4x4w4x6x5B/yZeCyKGGw56EwaKMvqaRw66drJmGs5qa697c/////v/+"
+                "////2c3KumNfvU5IwkZGvz5AvDo9wTg6vTQ1yDQ1wjQywDEuxzApyDMrvjEm"
+                "uTQiujcmvjgrvzcpwjortTYntTUpvzQitjAqwDsuxTQtwD8zzEZArFdU4NvV"
+                "/////v7+////2szGtUhIxT09y0BBujw5wEE8y0E6wkI6v0NAuz87wUY/wkA5"
+                "xkY+wUU8xEEzxkM3wT0zwTsvwjspvz4wx0Y/xT45y0NBwEA3vT0+u0ZCsj88"
+                "wEdC2t7V//////7/////287HwVBRyzc4uzUyqDkwqzg0nystrTU7pDozrz02"
+                "pDIsnDYvnzMtrzAtsDUuqTcyqDk2tkU+rDkvpC0orjcwjzgmnDEXmjUimTUl"
+                "tTc1wTw+vUpG29/X////////////28/Etk9PtUA9iy4bfSACq2dAqYRYikUh"
+                "gyMDkCcHcxMAnVQygzYXfhUAjTYUayAApl8/pl47dyoDdCICgisKnFc6qGJA"
+                "n2pKeSEAoTMgvT5AvkpG29/X////////////29HEw1BRyD8/iyYVgBQAuG5I"
+                "vKJ0kEEdghgAiBwAbQkAoVIwgzQSbg4AjSkHeRsAmUAhnEEeeBkAdBMAhyMB"
+                "iCkQqF1MzaOHeBcAoTcawzk8vktH2+DX////////////3tLEtVNOsjIzqGRb"
+                "yZuOvJCEqZWGwoR9t42CuI2CuZGEt4+BtZCBs459vJSFso2BuZGItIx/tIt8"
+                "uZSJuZOItIh4sI+HpqKOvpWAtWhXuEE7v0pH3ODW////////////3dPDvVJK"
+                "0zI4xZCQ9P//8v//8///+v//9v//8////P//5+jn2NTS8vX4+f//9P//7vr/"
+                "////+///8f//6///+f//+v//////////0Y6Ttzgvv0pH3OHZ////////////"
+                "3dLFvFRJuzQ5vIqR9v//8vv+9vn65vr98fn+5vr/9fL44+/f2c7E6OPk8P//"
+                "5vLw9P368v//7vz/6vb68vz87/r96Pv/7vr59f//wpOGujgyv0pI3uPY////"
+                "////////3dLHw1NLvC4wxIuQ9P//7fn+8/f68P3/9vr25u3k0cO958rI2cvJ"
+                "x7+48vr55eHh2M/MzcXH9PP2+/v/8/n77vn66Pb+9v799v//xZWItzUyv0tJ"
+                "3+TZ////////////4NXIwFFNtS80yIyO+f//9///+vz/8fn67///9///49Xf"
+                "vqym4NnN3dPM8v//6/Lw8+/t6eno6fH17v//6fn58/v98/7/9fz5+v//yJOK"
+                "uTczwUxK3+Ta////////////49TKtVpSv1xbwYWF5P782drh3eHd0cm717Oz"
+                "1Mm449DG//////z/////7v3/+P7+/////v//8/3/5/r/7f3/+Pz95u/20tbR"
+                "+v//yZSJujU1wUxK3+Ta////////////4tHIzYR1556RwYaD6P//4+Xq2era"
+                "wcqgx9OtxdW9w8uuuOe50eK97+/j9/T5+vHx9+7t+vX29fP89PP48vPz8vb3"
+                "6/P44uLc+f//yJKHvDc4v0tI3uPZ////////////4tHJwH9wyIp9wX+C7P//"
+                "9vz7wuvEnsd0ncxzoL9/oLNwqtJ1tNKN7+nb/vr67Obd7urh+fj09Pj4/vj4"
+                "+PTz8fT17PL4+fjy9v3/yZKHuTM2vkpH3eLX////////////5NTOvXBVzHRu"
+                "wo2D7///9vn/7vz08Pr07Pb47efr4tTP5dDV08/I4eTn/f///////////f//"
+                "9v37/f///f7/9/3+9v79//r7////zpOLuDkxwUhK29vU////////////5NPL"
+                "vXd75J+Rt4R/+P//8/377v/66/z/9v//29bcwrOZ7uDO1puH88/C////zMK/"
+                "z8LA+fXz///+/fr3/f79/fz4+Pv////8+///05+RvjI6wUdJ2trU////////"
+                "////5dTMum1o0nRovomB8f//8O7u5/fz6Ofm4uDb8eHQ49vO4/Xt9OTk7erx"
+                "/P/+//////7+//v7/P39///+//r8//b/9P348O7v////252SwDw0wUdK29vU"
+                "////////////5NPLvYFw0J+VxJOH////9vfo//zs5uPM8NjE/Oze9+3o////"
+                "///////////9///+///////+///5///7///8///////4/evc////4KSSszg1"
+                "w0lL29zV////////////5NTMu21m0YZ3YjuYLVTyJUvgIEjbdJTwpKvsGETh"
+                "cIvwaHHfb3jhaYHeMl/sMFnsLlfoLVvsMmHyM1/wJljoJ1/gN1z1KlLnKV31"
+                "cEyO2z5DwUpL3NzV////////////5NPNxXpp/62IQyp5BkDVEz/QAz3VTW3T"
+                "XnXbBjvbHEjAKFbSIEXTGEnXB0TUBj7PDkPRCUTSBTzIBjvHDUDTD0DVBjvI"
+                "BkLXBEPVW0WBuzkowUhL2drU////////////4dXMumhhx3FjulRFpWJIsGFG"
+                "vFdJrVlCtVhIsVk8sVpCp1o3qFpCr1o/q1lBq1pCqlg8p1c7qVw9rFxArFs5"
+                "rFhFqF5AumxXuX5hulxNxT5IykdK39rT/P///v/+////3NfMqUhCuiwtuC8u"
+                "uy8uuzAwuDAuuzIuvTMkvDMjuzMguzQevDMgvDIivTMjvTQivTYeuzQbujMa"
+                "uzQcvzghwTchtjAZtUYstFA3tUgwtjAbpjk82tHJ+v///v//////6ePYv7Kk"
+                "tKeZtqqbr6GWqp2RrqCWpZaPoIqPooyPoY6Moo+Noo+No4+QoIuOoY2MoY2L"
+                "nYqHmoeGmYWEk4R+lIp/pJiNnZuOm6OSoqWVtambz6+p2uTa+v78//7+////"
+                "4+3kjZuPl6iducm/wtHLusjDu8jHucXDvMjCvsrFv8zFvszEv83Fv83Fwc/E"
+                "wtDFwtDIws/Iv8zGvsrFv8rHxszMycjKxsfGyM7Lx87Lr66rc4mE3OHg////"
+                "////////2eXdd3p2dHBu1dHPvbm6xcDCvLe6yMPFxMDAxL/AxL/AxMDAw8C+"
+                "w8G9w8C8wb67wr29w76+w76/w76/wL/BuL2+u7m8xcLEu7i6xsbGb29uaHFv"
+                "5N/h/////v7/////8/j0yMzIys3L0tTSysvLxcbHxsbHuru8uru8ubq9ubm9"
+                "uru+uru9u7y7vr+/vL28uru9uru+u7u/u7y9uby7vcK+v8S/yszIysvH19jV"
+                "xMnG087P9fLz/f3+/v7+//7+//z9/v///f//8vf19/z67/Py8PXz6e/s6O3p"
+                "5evo4ufm3uPh3eLd3OLc3OPd3OLc3ePg4ebl5evo5+7n7PDo8fLv7/Xz9Pf1"
+                "+fj5+vr5/v//////+P/9/fz7//7+";
+
+[Device Classification]
+        Class1 = EtherNetIP;
+
+[Params]
+        Param1 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH1 M1 Value",     $ name
+                "",                     $ units
+                "ISM channel 1 M1 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param2 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH1 M2 Value",     $ name
+                "",                     $ units
+                "ISM channel 1 M2 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param3 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH1 M3 Value",     $ name
+                "",                     $ units
+                "ISM channel 1 M3 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param4 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH1 M4 Value",     $ name
+                "",                     $ units
+                "ISM channel 1 M4 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param5 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH2 M1 Value",     $ name
+                "",                     $ units
+                "ISM channel 2 M1 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param6 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH2 M2 Value",     $ name
+                "",                     $ units
+                "ISM channel 2 M2 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param7 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH2 M3 Value",     $ name
+                "",                     $ units
+                "ISM channel 2 M3 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param8 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH2 M4 Value",     $ name
+                "",                     $ units
+                "ISM channel 2 M4 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param9 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Flow1 M1 Value ",      $ name
+                "",                     $ units
+                "Flow channel 1 M1 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param10 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Flow1 M2 Value ",      $ name
+                "",                     $ units
+                "Flow channel 1 M2 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param11 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Flow2 M1 Value ",      $ name
+                "",                     $ units
+                "Flow channel 2 M1 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param12 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Flow2 M2 Value ",      $ name
+                "",                     $ units
+                "Flow channel 2 M2 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param13 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "HW and setpoint status",    $ name
+                "",                     $ units
+                "Hardware and setpoint status value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Enum13 =
+                0,"Relay 1 Status",
+                1,"Relay 2 Status",
+                2,"Reserved",
+                3,"Reserved",
+                4,"Reserved",
+                5,"Reserved",
+                6,"Reserved",
+                7,"Reserved",
+                8,"Digital Input 1 Status",
+                9,"Digital Input 2 Status",
+                10,"Digital Input 3 Status",
+                11,"Digital Input 4 Status",
+                12,"Digital Input 5 Status",
+                13,"Digital Input 6 Status",
+                14,"Communication Error",
+                15,"Reserved",
+                16,"SP1 Alarm",
+                17,"SP2 Alarm",
+                18,"SP3 Alarm",
+                19,"SP4 Alarm",
+                20,"SP5 Alarm",
+                21,"SP6 Alarm",
+                22,"SP7 Alarm",
+                23,"SP8 Alarm",
+                24,"Flow Ch1 Hold Status",
+                25,"Flow Ch2 Hold Status",
+                26,"Reserved",
+                27,"Reserved",
+                28,"Reserved",
+                29,"Reserved",
+                30,"Reserved",
+                31,"Reserved";
+        Param14 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Measurement Status 1", $ name
+                "",                     $ units
+                "Measurement status 1 value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param15 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH1 Status",       $ name
+                "",                     $ units
+                "ISM channel 1 status value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Enum15 =
+                0,"Calibration Data Warning",
+                1,"Calibration Data Error",
+                2,"Reserved",
+                3,"Hold Status",
+                4,"Clean Status",
+                5,"Reserved",
+                6,"Maint Required",
+                7,"Calibration Required",
+                8,"CIP Counter Expired",
+                9,"SIP Counter Expired",
+                10,"Autoclave Counter Expired",
+                11,"Reserved",
+                12,"Sensor Disconnected",
+                13,"Change Sensor/DLI Expired",
+                14,"Reserved",
+                15,"Reserved",
+                16,"Sensor Status bit0",
+                17,"Sensor Status bit1",
+                18,"Sensor Status bit2",
+                19,"Sensor Status bit3",
+                20,"Sensor Status bit4",
+                21,"Sensor Status bit5",
+                22,"Sensor Status bit6",
+                23,"Sensor Status bit7",
+                24,"Sensor Status bit8",
+                25,"Sensor Status bit9",
+                26,"Sensor Status bit10",
+                27,"Sensor Status bit11",
+                28,"Sensor Status bit12",
+                29,"Sensor Status bit13",
+                30,"Sensor Status bit14",
+                31,"Sensor Status bit15";
+        Param16 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH2 Status",       $ name
+                "",                     $ units
+                "ISM channel 2 status value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Enum16 =
+                0,"Calibration Data Warning",
+                1,"Calibration Data Error",
+                2,"Reserved",
+                3,"Hold Status",
+                4,"Clean Status",
+                5,"Reserved",
+                6,"Maint Required",
+                7,"Calibration Required",
+                8,"CIP Counter Expired",
+                9,"SIP Counter Expired",
+                10,"Autoclave Counter Expired",
+                11,"Reserved",
+                12,"Sensor Disconnected",
+                13,"Change Sensor/DLI Expired",
+                14,"Reserved",
+                15,"Reserved",
+                16,"Sensor Status bit0",
+                17,"Sensor Status bit1",
+                18,"Sensor Status bit2",
+                19,"Sensor Status bit3",
+                20,"Sensor Status bit4",
+                21,"Sensor Status bit5",
+                22,"Sensor Status bit6",
+                23,"Sensor Status bit7",
+                24,"Sensor Status bit8",
+                25,"Sensor Status bit9",
+                26,"Sensor Status bit10",
+                27,"Sensor Status bit11",
+                28,"Sensor Status bit12",
+                29,"Sensor Status bit13",
+                30,"Sensor Status bit14",
+                31,"Sensor Status bit15";
+        Param17 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH3 M1 Value",     $ name
+                "",                     $ units
+                "ISM channel 3 M1 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param18 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH3 M2 Value",     $ name
+                "",                     $ units
+                "ISM channel 3 M2 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param19 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH3 M3 Value",     $ name
+                "",                     $ units
+                "ISM channel 3 M3 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param20 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH3 M4 Value",     $ name
+                "",                     $ units
+                "ISM channel 3 M4 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param21 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH4 M1 Value",     $ name
+                "",                     $ units
+                "ISM channel 4 M1 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param22 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH4 M2 Value",     $ name
+                "",                     $ units
+                "ISM channel 4 M2 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param23 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH4 M3 Value",     $ name
+                "",                     $ units
+                "ISM channel 4 M3 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param24 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH4 M4 Value",     $ name
+                "",                     $ units
+                "ISM channel 4 M4 - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param25 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Measurement Status 2", $ name
+                "",                     $ units
+                "Measurement status 2 value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param26 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH3 Status",       $ name
+                "",                     $ units
+                "ISM channel 3 status value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Enum26 =
+                0,"Calibration Data Warning",
+                1,"Calibration Data Error",
+                2,"Reserved",
+                3,"Hold Status",
+                4,"Clean Status",
+                5,"Reserved",
+                6,"Maint Required",
+                7,"Calibration Required",
+                8,"CIP Counter Expired",
+                9,"SIP Counter Expired",
+                10,"Autoclave Counter Expired",
+                11,"Reserved",
+                12,"Sensor Disconnected",
+                13,"Change Sensor/DLI Expired",
+                14,"Reserved",
+                15,"Reserved",
+                16,"Sensor Status bit0",
+                17,"Sensor Status bit1",
+                18,"Sensor Status bit2",
+                19,"Sensor Status bit3",
+                20,"Sensor Status bit4",
+                21,"Sensor Status bit5",
+                22,"Sensor Status bit6",
+                23,"Sensor Status bit7",
+                24,"Sensor Status bit8",
+                25,"Sensor Status bit9",
+                26,"Sensor Status bit10",
+                27,"Sensor Status bit11",
+                28,"Sensor Status bit12",
+                29,"Sensor Status bit13",
+                30,"Sensor Status bit14",
+                31,"Sensor Status bit15";
+        Param27 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "ISM CH4 Status",       $ name
+                "",                     $ units
+                "ISM channel 4 status value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Enum27 =
+                0,"Calibration Data Warning",
+                1,"Calibration Data Error",
+                2,"Reserved",
+                3,"Hold Status",
+                4,"Clean Status",
+                5,"Reserved",
+                6,"Maint Required",
+                7,"Calibration Required",
+                8,"CIP Counter Expired",
+                9,"SIP Counter Expired",
+                10,"Autoclave Counter Expired",
+                11,"Reserved",
+                12,"Sensor Disconnected",
+                13,"Change Sensor/DLI Expired",
+                14,"Reserved",
+                15,"Reserved",
+                16,"Sensor Status bit0",
+                17,"Sensor Status bit1",
+                18,"Sensor Status bit2",
+                19,"Sensor Status bit3",
+                20,"Sensor Status bit4",
+                21,"Sensor Status bit5",
+                22,"Sensor Status bit6",
+                23,"Sensor Status bit7",
+                24,"Sensor Status bit8",
+                25,"Sensor Status bit9",
+                26,"Sensor Status bit10",
+                27,"Sensor Status bit11",
+                28,"Sensor Status bit12",
+                29,"Sensor Status bit13",
+                30,"Sensor Status bit14",
+                31,"Sensor Status bit15";
+        Param28 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "AO1_Pressure",         $ name
+                "",                     $ units
+                "1st Process Pressure (mbar) and status value - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param29 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xCA,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "AO2_Pressure",         $ name
+                "",                     $ units
+                "2nd Process Pressure 2 (mbar) and status value - 32bit",    $ help string
+                ,,0.0,                  $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param30 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Hold and LED Control 1",    $ name
+                "",                     $ units
+                "Hold and LED control 1 value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param31 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Hold and LED Control 2",    $ name
+                "",                     $ units
+                "Hold and LED Control 2 value - 32bit",    $ help string
+                0,4294967295,0,         $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param60 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC8,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "RPI Range",            $ name
+                "micro second",         $ units
+                "supported RPI range",  $ help string
+                1000,100000,10000,      $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param70 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC7,                   $ Data Type
+                2,                      $ Data Size in bytes
+                "Assembly 2 Block Input Size",    $ name
+                "",                     $ units
+                "Assembly 2 Block Size for Measurement Block Format",    $ help string
+                108,108,108,            $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param71 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC7,                   $ Data Type
+                2,                      $ Data Size in bytes
+                "Assembly 2 Block Output Size",    $ name
+                "",                     $ units
+                "Assembly 2 Block Output Size for AO and DO",    $ help string
+                16,16,16,               $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param72 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC7,                   $ Data Type
+                2,                      $ Data Size in bytes
+                "Assembly 1 Block Input Size",    $ name
+                "",                     $ units
+                "Assembly 1 Block Size for Measurement Block Format",    $ help string
+                64,64,64,               $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param73 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC7,                   $ Data Type
+                2,                      $ Data Size in bytes
+                "Assembly 1 Block Output Size",    $ name
+                "",                     $ units
+                "Assembly 1 Block Output Size for AO and DO",    $ help string
+                12,12,12,               $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param75 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC6,                   $ Data Type
+                1,                      $ Data Size in bytes
+                "Assembly Instance 103 Input 1 Block",    $ name
+                "",                     $ units
+                "Device--->PLC",        $ help string
+                103,103,103,            $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param76 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC6,                   $ Data Type
+                1,                      $ Data Size in bytes
+                "Assembly Instance 102 Output 1 Block",    $ name
+                "",                     $ units
+                "PLC--->Device",        $ help string
+                100,100,100,            $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param77 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC6,                   $ Data Type
+                1,                      $ Data Size in bytes
+                "Assembly Instance 101 Input 2 Block",    $ name
+                "",                     $ units
+                "Device--->PLC",        $ help string
+                101,101,101,            $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+        Param78 =
+                0,                      $ reserved, shall equal 0
+                ,,                      $ Link Path Size, Link Path
+                0x0000,                 $ Descriptor
+                0xC6,                   $ Data Type
+                1,                      $ Data Size in bytes
+                "Assembly Instance 100 Output 2 Block",    $ name
+                "",                     $ units
+                "PLC--->Device",        $ help string
+                100,100,100,            $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+
+[Groups]
+        Group1 =
+                "Measuring Block ",
+                27,
+                1,2,3,4,5,6,7,8,9,10,
+                11,12,13,14,15,16,17,18,19,20,
+                21,22,23,24,25,26,27;
+
+[Assembly]
+        Object_Name = "Assembly Object";
+        Object_Class_Code = 0x04;
+        Assem100 =
+                $ Includes Measuring Block (Floating Point) and Status Block
+                "Output 2 Block_AO_DO Format",
+                "20 04 24 64 30 03",
+                ,
+                0x0000,
+                ,,
+                32,Param28,
+                32,Param29,
+                32,Param30,
+                32,Param31;
+        Assem101 =
+                $ Includes Measuring and Status Data
+                "Input 2 Block_AI_DI Format",
+                "20 04 24 65 30 03",
+                ,
+                0x0000,
+                ,,
+                32,Param1,
+                32,Param2,
+                32,Param3,
+                32,Param4,
+                32,Param5,
+                32,Param6,
+                32,Param7,
+                32,Param8,
+                32,Param9,
+                32,Param10,
+                32,Param11,
+                32,Param12,
+                32,Param13,
+                32,Param14,
+                32,Param15,
+                32,Param16,
+                32,Param17,
+                32,Param18,
+                32,Param19,
+                32,Param20,
+                32,Param21,
+                32,Param22,
+                32,Param23,
+                32,Param24,
+                32,Param25,
+                32,Param26,
+                32,Param27;
+        Assem102 =
+                "Output 1 Block_AO_DO Format",
+                "20 04 24 64 30 03",
+                ,
+                0x0000,
+                ,,
+                32,Param28,
+                32,Param29,
+                32,Param30,
+                32,Param31;
+        Assem103 =
+                "Input 1 Block_AI_DI Format",
+                "20 04 24 65 30 03",
+                ,
+                0x0000,
+                ,,
+                32,Param1,
+                32,Param2,
+                32,Param3,
+                32,Param4,
+                32,Param5,
+                32,Param6,
+                32,Param7,
+                32,Param8,
+                32,Param9,
+                32,Param10,
+                32,Param11,
+                32,Param12,
+                32,Param13,
+                32,Param14,
+                32,Param15,
+                32,Param16;
+
+[Connection Manager]
+        Object_Name = "Connection Manager Object";
+        Object_Class_Code = 0x06;
+
+        Connection1 =
+                0x04010002,             $ 0-15    = supported transport classes
+                                        $ 16      = trigger: cyclic
+                                        $ 17      = trigger: change of state
+                                        $ 18      = trigger: application
+                                        $ 19-23   = trigger: reserved
+                                        $ 24      = application type: listen-only
+                                        $ 25      = application type: input-only
+                                        $ 26      = application type: exclusive-owner
+                                        $ 27      = application type: redundant-owner
+                                        $ 28-30   = reserved
+                                        $ 31      = Direction: Client = 0 / Server = 1
+                0x44640405,             $ 0       = O->T fixed size supported
+                                        $ 1       = O->T variable size supported
+                                        $ 2       = T->O fixed size supported
+                                        $ 3       = T->O variable size supported
+                                        $ 4-5     = O->T number of bytes per slot (obsolete)
+                                        $ 6-7     = T->O number of bytes per slot (obsolete)
+                                        $ 8-10    = O->T Real time transfer format
+                                        $ 11      = reserved
+                                        $ 12-14   = T->O Real time transfer format
+                                        $ 15      = reserved
+                                        $ 16      = O->T connection type: NULL
+                                        $ 17      = O->T connection type: MULTICAST
+                                        $ 18      = O->T connection type: POINT2POINT
+                                        $ 19      = O->T connection type: reserved
+                                        $ 20      = T->O connection type: NULL
+                                        $ 21      = T->O connection type: MULTICAST
+                                        $ 22      = T->O connection type: POINT2POINT
+                                        $ 23      = T->O connection type: reserved
+                                        $ 24      = O->T priority: LOW
+                                        $ 25      = O->T priority: HIGH
+                                        $ 26      = O->T priority: SCHEDULED
+                                        $ 27      = O->T priority: reserved
+                                        $ 28      = T->O priority: LOW
+                                        $ 29      = T->O priority: HIGH
+                                        $ 30      = T->O priority: SCHEDULED
+                                        $ 31      = T->O priority: reserved
+                Param60,Param71,Assem100,    $ O->T RPI, size, format
+                Param60,Param70,Assem101,    $ T->O RPI, size, format
+                ,,                      $ proxy config size, format
+                ,,                      $ target config size, format
+                "4 Channel Block",      $ Connection Name
+                "",                     $ help string
+                "20 04 24 01 2C [Param78] 2C [Param77]";    $ Path
+        Connection2 =
+                0x04010002,             $ 0-15    = supported transport classes
+                                        $ 16      = trigger: cyclic
+                                        $ 17      = trigger: change of state
+                                        $ 18      = trigger: application
+                                        $ 19-23   = trigger: reserved
+                                        $ 24      = application type: listen-only
+                                        $ 25      = application type: input-only
+                                        $ 26      = application type: exclusive-owner
+                                        $ 27      = application type: redundant-owner
+                                        $ 28-30   = reserved
+                                        $ 31      = Direction: Client = 0 / Server = 1
+                0x44640405,             $ 0       = O->T fixed size supported
+                                        $ 1       = O->T variable size supported
+                                        $ 2       = T->O fixed size supported
+                                        $ 3       = T->O variable size supported
+                                        $ 4-5     = O->T number of bytes per slot (obsolete)
+                                        $ 6-7     = T->O number of bytes per slot (obsolete)
+                                        $ 8-10    = O->T Real time transfer format
+                                        $ 11      = reserved
+                                        $ 12-14   = T->O Real time transfer format
+                                        $ 15      = reserved
+                                        $ 16      = O->T connection type: NULL
+                                        $ 17      = O->T connection type: MULTICAST
+                                        $ 18      = O->T connection type: POINT2POINT
+                                        $ 19      = O->T connection type: reserved
+                                        $ 20      = T->O connection type: NULL
+                                        $ 21      = T->O connection type: MULTICAST
+                                        $ 22      = T->O connection type: POINT2POINT
+                                        $ 23      = T->O connection type: reserved
+                                        $ 24      = O->T priority: LOW
+                                        $ 25      = O->T priority: HIGH
+                                        $ 26      = O->T priority: SCHEDULED
+                                        $ 27      = O->T priority: reserved
+                                        $ 28      = T->O priority: LOW
+                                        $ 29      = T->O priority: HIGH
+                                        $ 30      = T->O priority: SCHEDULED
+                                        $ 31      = T->O priority: reserved
+                Param60,Param71,Assem102,    $ O->T RPI, size, format
+                Param60,Param72,Assem103,    $ T->O RPI, size, format
+                ,,                      $ proxy config size, format
+                ,,                      $ target config size, format
+                "1/2 Channel Block",    $ Connection Name
+                "",                     $ help string
+                "20 04 24 01 2C [Param76] 2C [Param75]";    $ Path
+
+[Port]
+        Object_Name = "Port Object";
+        Object_Class_Code = 0xF4;
+        Port1 =
+                TCP,
+                "EtherNet/IP port",
+                "20 F5 24 01",
+                1,
+                0x00,
+                ;
+
+[Capacity]
+
+        ConnOverhead = .004;            $ Connection Overhead
+
+        MaxIOConnections = 1;           $ Maximum number of Class 1 Connections
+        MaxMsgConnections = 6;          $ Maximum number of Class 3 Connections
+        TSpec1 = TxRx, 10, 2000;        $ packets per sec @ 10 bytes
+        TSpec2 = TxRx, 504, 1500;       $ packets per sec @ 504 bytes
+
+[TCP/IP Interface Class]
+        Revision = 4;
+        Object_Name = "TCP/IP Interface Object";
+        Object_Class_Code = 0xF5;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+
+[Ethernet Link Class]
+        Revision = 4;
+        Object_Name = "Ethernet Link Object";
+        Object_Class_Code = 0xF6;
+        MaxInst = 2;
+        Number_Of_Static_Instances = 2;
+        Max_Number_Of_Dynamic_Instances = 0;
+        InterfaceLabel1 = "Port 1";
+
+$ ****************************************************************************
+$ EOF
+$ ****************************************************************************

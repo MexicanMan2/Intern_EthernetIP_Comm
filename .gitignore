@@ -1,0 +1,25 @@
+# Python-specific
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+# Virtual environments
+venv/
+.env/
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+# Logs and temp files
+*.log
+*.tmp
+# Docker
+*.pid
+# OS-specific
+.DS_Store
+Thumbs.db

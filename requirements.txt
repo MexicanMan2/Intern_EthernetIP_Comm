@@ -1,0 +1,13 @@
+# Core libraries
+pycomm3            # EtherNet/IP communication
+asyncua            # OPC UA client/server (async)
+
+# Utility libraries
+python-dotenv      # For environment variable management
+loguru             # For structured logging
+
+# Optional (for later phases)
+fastapi            # REST API framework
+uvicorn[standard]  # ASGI server for FastAPI
+
+PyYAML
