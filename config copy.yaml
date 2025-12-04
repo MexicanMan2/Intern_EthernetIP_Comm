@@ -1,0 +1,19 @@
+opcua:
+  endpoint: "opc.tcp://0.0.0.0:4840"
+  nodes:
+    conductivity_ch1: 'ns=2;s=Conductivity_Ch1'
+    temperature_ch1: 'ns=2;s=Temperature_Ch1'
+    status_ch1: 'ns=2;s=Status_Ch1'
+    conductivity_ch2: 'ns=2;s=Conductivity_Ch2'
+    temperature_ch2: 'ns=2;s=Temperature_Ch2'
+    status_ch2: 'ns=2;s=Status_Ch2'
+    conductivity_ch3: 'ns=2;s=Conductivity_Ch3'
+    temperature_ch3: 'ns=2;s=Temperature_Ch3'
+    status_ch3: 'ns=2;s=Status_Ch3'
+    conductivity_ch4: 'ns=2;s=Conductivity_Ch4'
+    temperature_ch4: 'ns=2;s=Temperature_Ch4'
+    status_ch4: 'ns=2;s=Status_Ch4'
+
+ethernetip:
+  ip_address: "192.168.0.7"
+  eds_file: "./eds_files/MT_M800_1P_EIP_V1.2_20200107.eds"
