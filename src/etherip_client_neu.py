@@ -1,6 +1,9 @@
+
 import logging
 import time
 import struct
+import json
+import os
 from typing import Dict, Tuple, Optional
 
 from pycomm3 import CIPDriver
@@ -241,3 +244,27 @@ class EtherIPClient:
                     self.driver.close()
             except Exception:
                 pass
+
+
+def load_config(path: str) -> Dict:
+    """Lädt eine JSON-Config mit Schlüsseln: etherip.ip, etherip.eds_file."""
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"Config file not found: {path}")
+    with open(path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+
+if __name__ == "__main__":
+    # Basis-Logging
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+
+    # Config laden (JSON)
+    cfg = load_config("config.json")
+    ip = cfg["etherip"]["ip"]
+    eds_file = cfg["etherip"]["eds_file"]
+
+    client = EtherIPClient(ip, eds_file)
+    if client.connect():
+        client.health_check_loop(interval=5)
+    else:
+        logging.error("Initial connection failed; exiting.")
