@@ -59,6 +59,42 @@ def shutdown_handler(sig, frame):
 signal.signal(signal.SIGINT, shutdown_handler)
 signal.signal(signal.SIGTERM, shutdown_handler)
 
+# New helper function for the main loop logic
+async def _run_main_loop(etherip_client: EtherIPClient, opc_client: OPCUAClient, stop_event: asyncio.Event):
+    """Helper function to run the main data exchange loop."""
+    try:
+        while not stop_event.is_set():
+            # Run synchronous blocking I/O in a separate thread
+            readings = await asyncio.to_thread(etherip_client.read_all_channels)
+            statuses = await asyncio.to_thread(etherip_client.read_channel_statuses)
+            
+            all_data = {**readings, **statuses}
+            logging.debug(f"Read data: {all_data}")
+
+            write_tasks = []
+            for name, value in all_data.items():
+                if value is not None:
+                    write_tasks.append(opc_client.write_value(name, value))
+            
+            if write_tasks:
+                results = await asyncio.gather(*write_tasks, return_exceptions=True)
+                successful_writes = sum(1 for r in results if r is True)
+                failed_writes = sum(1 for r in results if r is False)
+                if successful_writes > 0:
+                    logging.debug(f"Successfully wrote {successful_writes} values to OPC UA server.")
+                if failed_writes > 0:
+                    logging.warning(f"Failed to write {failed_writes} values to OPC UA server.")
+                
+            if not await opc_client.toggle_watchdog():
+                logging.warning("Failed to toggle OPC UA watchdog.")
+
+            await asyncio.sleep(1)
+    except asyncio.CancelledError:
+        logging.info("Data exchange loop task cancelled.")
+    except Exception as e:
+        logging.error(f"Error in data exchange loop: {e}", exc_info=True)
+
+
 async def main():
     # Load configuration
     with open("config.yaml", "r") as f:
@@ -73,53 +109,39 @@ async def main():
     etherip_client = EtherIPClient(ip_address=eth_ip, eds_file=eds_file)
     # Connect EtherNet/IP with retry logic
     while not await asyncio.to_thread(etherip_client.connect):
-        logging.info("Waiting for EtherNet/IP connection...")
         await asyncio.sleep(1) # Small delay before checking connect again (connect method has its own delays)
     
     # Initialize OPC UA client
     opc_client = OPCUAClient(opc_endpoint, node_ids)
     # Connect OPC UA with retry logic
     while not await opc_client.connect():
-        logging.info("Waiting for OPC UA connection...")
         await asyncio.sleep(1) # Small delay before checking connect again (connect method has its own delays)
 
     logging.info("Starting data exchange loop... Press Ctrl+C to stop.")
+    
+    # Create the main data exchange loop as a cancellable task
+    main_task = asyncio.create_task(_run_main_loop(etherip_client, opc_client, stop_event)) # New helper function
+
     try:
-        while not stop_event.is_set():
-            # Run synchronous blocking I/O in a separate thread
-            readings = await asyncio.to_thread(etherip_client.read_all_channels)
-            statuses = await asyncio.to_thread(etherip_client.read_channel_statuses)
-            
-            all_data = {**readings, **statuses}
-            logging.debug(f"Read data: {all_data}")
-
-            # Create a list of tasks for writing to OPC UA
-            write_tasks = []
-            for name, value in all_data.items():
-                if value is not None:
-                    write_tasks.append(opc_client.write_value(name, value)) # Collect coroutines directly
-            
-            # Run all write tasks concurrently and check results
-            if write_tasks:
-                results = await asyncio.gather(*write_tasks, return_exceptions=True) # Collect results
-                successful_writes = sum(1 for r in results if r is True)
-                failed_writes = sum(1 for r in results if r is False)
-                if successful_writes > 0:
-                    logging.debug(f"Successfully wrote {successful_writes} values to OPC UA server.")
-                if failed_writes > 0:
-                    logging.warning(f"Failed to write {failed_writes} values to OPC UA server.")
-                
-            # Toggle the watchdog after a successful write cycle
-            if not await opc_client.toggle_watchdog():
-                logging.warning("Failed to toggle OPC UA watchdog.")
-
-            await asyncio.sleep(1)  # Adjust interval as needed
+        # Wait until stop_event is set (from signal handler)
+        await stop_event.wait() 
+    except asyncio.CancelledError:
+        logging.info("Main task cancelled (likely due to signal).")
     except Exception as e:
         logging.error(f"Error in main loop: {e}", exc_info=True)
     finally:
         logging.info("Cleaning up...")
+        # Ensure the main task is truly cancelled and finished
+        if not main_task.done():
+            main_task.cancel()
+            try:
+                await main_task # Await cancellation to propagate
+            except asyncio.CancelledError:
+                pass # Expected during cancellation
+
         # Ensure proper disconnect based on connection status
-        if opc_client.client and opc_client._is_connected: # Check if still connected
+        # This part remains mostly the same, as we're explicitly disconnecting clients
+        if opc_client.client and opc_client._is_connected:
             await opc_client.disconnect()
         if etherip_client.driver and etherip_client.driver.connected:
             etherip_client.driver.close()
