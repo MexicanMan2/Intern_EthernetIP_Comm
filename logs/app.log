@@ -1,0 +1,338 @@
+2025-12-11 14:34:03,078 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 1)...
+2025-12-11 14:34:06,135 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 1): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:06,152 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:07,154 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 2)...
+2025-12-11 14:34:10,231 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 2): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:10,238 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:11,241 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 3)...
+2025-12-11 14:34:14,295 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 3): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:14,302 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:15,304 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 4)...
+2025-12-11 14:34:18,359 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 4): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:18,368 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:19,370 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 5)...
+2025-12-11 14:34:22,423 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 5): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:22,430 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:23,432 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 6)...
+2025-12-11 14:34:26,487 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 6): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:26,493 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:27,495 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 7)...
+2025-12-11 14:34:28,959 [INFO] Shutdown signal received. Stopping...
+2025-12-11 14:34:30,551 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 7): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:30,560 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:31,562 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 8)...
+2025-12-11 14:34:34,615 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 8): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:34,622 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:35,624 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 9)...
+2025-12-11 14:34:38,679 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 9): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:38,686 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:39,688 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 10)...
+2025-12-11 14:34:42,743 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 10): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:34:42,750 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:43,753 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:44,756 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:45,758 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:46,761 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:47,764 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:48,766 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:49,769 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:50,772 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:51,774 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:52,777 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:53,780 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:54,782 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:55,785 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:56,788 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:57,790 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:58,792 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:34:59,794 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:00,795 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:01,797 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:02,799 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:03,802 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:04,805 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:05,808 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:06,810 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:07,813 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:08,816 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:09,818 [INFO] Attempting to connect to EtherNet/IP device at 192.168.178.237 (Attempt 11)...
+2025-12-11 14:35:12,887 [ERROR] Unexpected exception while connecting to 192.168.178.237 (Attempt 11): failed to open a connection
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 43, in connect
+    self.sock.connect((socket.gethostbyname(host), port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 310, in open
+    self._sock.connect(self._cfg["ip address"], self._cfg["port"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/socket_.py", line 45, in connect
+    raise CommError(f"Failed to open socket to {host}:{port}")
+pycomm3.exceptions.CommError: Failed to open socket to 192.168.178.237:44818
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/src/etherip_client.py", line 94, in connect
+    connection_successful = self.driver.open()
+  File "/home/fiona/Desktop/Intern_EthernetIP_Comm/.venv/lib/python3.13/site-packages/pycomm3/cip_driver.py", line 319, in open
+    raise CommError("failed to open a connection") from err
+pycomm3.exceptions.CommError: failed to open a connection
+2025-12-11 14:35:12,894 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:13,897 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:14,900 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:15,902 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:16,905 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:17,908 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:18,910 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:19,913 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:20,915 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:21,918 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:22,921 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:23,923 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:24,926 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:25,928 [INFO] Waiting for EtherNet/IP connection...
+2025-12-11 14:35:26,930 [INFO] Waiting for EtherNet/IP connection...

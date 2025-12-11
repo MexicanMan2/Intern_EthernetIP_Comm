@@ -16,7 +16,7 @@ venv/
 .idea/
 *.swp
 # Logs and temp files
-*.log
+
 *.tmp
 # Docker
 *.pid

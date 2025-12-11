@@ -119,7 +119,7 @@ class EtherIPClient:
                 return False
 
         except Exception as e:
-            logging.exception(
+            logging.error( # Changed from logging.exception
                 f"Unexpected exception while connecting to {self.ip_address} (Attempt {self.reconnect_attempts}): {e}"
             )
             self.driver = None
