@@ -66,7 +66,14 @@ async def _run_main_loop(etherip_client: EtherIPClient, opc_client: OPCUAClient,
         while not stop_event.is_set():
             # Run synchronous blocking I/O in a separate thread
             readings = await asyncio.to_thread(etherip_client.read_all_channels)
+            
+            if stop_event.is_set(): # Added check after first blocking call
+                break
+
             statuses = await asyncio.to_thread(etherip_client.read_channel_statuses)
+            
+            if stop_event.is_set(): # Added check after second blocking call
+                break
             
             all_data = {**readings, **statuses}
             logging.debug(f"Read data: {all_data}")
@@ -85,10 +92,14 @@ async def _run_main_loop(etherip_client: EtherIPClient, opc_client: OPCUAClient,
                 if failed_writes > 0:
                     logging.warning(f"Failed to write {failed_writes} values to OPC UA server.")
                 
+            if stop_event.is_set(): # Added check before watchdog toggle
+                break
+
             if not await opc_client.toggle_watchdog():
                 logging.warning("Failed to toggle OPC UA watchdog.")
 
-            await asyncio.sleep(1)
+            # This sleep is responsive to cancellation, no need for check after it
+            await asyncio.sleep(1) 
     except asyncio.CancelledError:
         logging.info("Data exchange loop task cancelled.")
     except Exception as e:
