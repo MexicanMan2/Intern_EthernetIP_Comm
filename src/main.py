@@ -59,47 +59,100 @@ def shutdown_handler(sig, frame):
 signal.signal(signal.SIGINT, shutdown_handler)
 signal.signal(signal.SIGTERM, shutdown_handler)
 
+async def connect_with_retry(connect_func, client_name, max_attempts=10, initial_delay=5):
+    """
+    Attempts to connect using the provided async connect_func with exponential backoff.
+    """
+    for attempt in range(1, max_attempts + 1):
+        try:
+            logging.info(f"Attempting to connect to {client_name} (Attempt {attempt})...")
+            if asyncio.iscoroutinefunction(connect_func):
+                connected = await connect_func()
+            else:
+                # Assuming synchronous connect_func like EtherIPClient's connect needs to be run in a thread
+                connected = await asyncio.to_thread(connect_func)
+
+            if connected:
+                logging.info(f"Successfully connected to {client_name} after {attempt} attempts.")
+                return True
+        except Exception as e:
+            logging.error(f"Unexpected exception while connecting to {client_name} (Attempt {attempt}): {e}")
+
+        if attempt < max_attempts:
+            delay = initial_delay * (2 ** (attempt - 1))
+            logging.info(f"Retrying {client_name} in {delay} seconds...")
+            try:
+                # Wait for the delay OR for the stop_event to be set
+                await asyncio.wait_for(stop_event.wait(), timeout=delay)
+                # If we get here, the stop_event was set during the delay
+                logging.info(f"Stop event received during retry-wait for {client_name}. Aborting connection attempts.")
+                return False # Abort connection attempts
+            except asyncio.TimeoutError:
+                # This is the normal path, the sleep delay finished without a stop signal
+                pass
+    logging.error(f"Failed to connect to {client_name} after {max_attempts} attempts. Giving up.")
+    return False
+
 # New helper function for the main loop logic
 async def _run_main_loop(etherip_client: EtherIPClient, opc_client: OPCUAClient, stop_event: asyncio.Event):
-    """Helper function to run the main data exchange loop."""
+    """Helper function to run the main data exchange loop with robust error handling."""
+    
+    etherip_error_count = 0
+    max_consecutive_etherip_errors = 5
+    base_sleep_delay = 1 # seconds
+
     try:
         while not stop_event.is_set():
-            # Run synchronous blocking I/O in a separate thread
-            readings = await asyncio.to_thread(etherip_client.read_all_channels)
-            
-            if stop_event.is_set(): # Added check after first blocking call
-                break
+            current_sleep_delay = base_sleep_delay
 
-            statuses = await asyncio.to_thread(etherip_client.read_channel_statuses)
-            
-            if stop_event.is_set(): # Added check after second blocking call
-                break
-            
-            all_data = {**readings, **statuses}
-            logging.debug(f"Read data: {all_data}")
+            # --- EtherNet/IP Read Operations ---
+            try:
+                readings = await asyncio.to_thread(etherip_client.read_all_channels)
+                statuses = await asyncio.to_thread(etherip_client.read_channel_statuses)
+                all_data = {**readings, **statuses}
+                logging.debug(f"Read data: {all_data}")
+                etherip_error_count = 0 # Reset error count on success
+            except Exception as e:
+                etherip_error_count += 1
+                logging.error(f"Error reading from EtherNet/IP device (consecutive errors: {etherip_error_count}): {e}", exc_info=False)
+                # If too many errors, increase sleep delay
+                if etherip_error_count >= max_consecutive_etherip_errors:
+                    current_sleep_delay = base_sleep_delay * (2 ** (etherip_error_count // max_consecutive_etherip_errors))
+                    logging.warning(f"Persistent EtherNet/IP errors. Increasing loop delay to {current_sleep_delay}s.")
+                
+                await asyncio.sleep(current_sleep_delay) # Wait before retrying EtherNet/IP
+                continue # Skip the rest of the loop if EtherNet/IP read failed
 
+
+            # --- OPC UA Write Operations ---
             write_tasks = []
             for name, value in all_data.items():
                 if value is not None:
                     write_tasks.append(opc_client.write_value(name, value))
             
             if write_tasks:
+                # asyncio.gather will run writes concurrently. write_value handles its own reconnections and logging.
                 results = await asyncio.gather(*write_tasks, return_exceptions=True)
                 successful_writes = sum(1 for r in results if r is True)
-                failed_writes = sum(1 for r in results if r is False)
+                failed_writes = sum(1 for r in results if r is False) # opc_client.write_value returns True/False
+                
                 if successful_writes > 0:
                     logging.debug(f"Successfully wrote {successful_writes} values to OPC UA server.")
                 if failed_writes > 0:
                     logging.warning(f"Failed to write {failed_writes} values to OPC UA server.")
                 
-            if stop_event.is_set(): # Added check before watchdog toggle
-                break
+            # --- OPC UA Watchdog Toggle ---
+            if opc_client._is_connected: # Only try to toggle if OPC UA client thinks it's connected
+                try:
+                    if not await opc_client.toggle_watchdog():
+                        logging.warning("Failed to toggle OPC UA watchdog.")
+                except Exception as e:
+                    logging.error(f"Error toggling OPC UA watchdog: {e}", exc_info=False)
+            else:
+                logging.debug("Skipping OPC UA watchdog toggle as client is not connected.")
+            
+            await asyncio.sleep(current_sleep_delay) # Use adjusted delay
 
-            if not await opc_client.toggle_watchdog():
-                logging.warning("Failed to toggle OPC UA watchdog.")
-
-            # This sleep is responsive to cancellation, no need for check after it
-            await asyncio.sleep(1) 
     except asyncio.CancelledError:
         logging.info("Data exchange loop task cancelled.")
     except Exception as e:
@@ -119,14 +172,18 @@ async def main():
     # Initialize EtherNet/IP client
     etherip_client = EtherIPClient(ip_address=eth_ip, eds_file=eds_file)
     # Connect EtherNet/IP with retry logic
-    while not await asyncio.to_thread(etherip_client.connect):
-        await asyncio.sleep(1) # Small delay before checking connect again (connect method has its own delays)
+    etherip_connected = await connect_with_retry(etherip_client.connect, "EtherNet/IP device", max_attempts=10, initial_delay=5)
+    if not etherip_connected:
+        logging.error("Failed to establish EtherNet/IP connection. Exiting.")
+        return # Exit if critical connection fails
     
     # Initialize OPC UA client
     opc_client = OPCUAClient(opc_endpoint, node_ids)
     # Connect OPC UA with retry logic
-    while not await opc_client.connect():
-        await asyncio.sleep(1) # Small delay before checking connect again (connect method has its own delays)
+    opcua_connected = await connect_with_retry(opc_client.connect, "OPC UA server", max_attempts=10, initial_delay=5)
+    if not opcua_connected:
+        logging.error("Failed to establish OPC UA connection. Exiting.")
+        return # Exit if critical connection fails
 
     logging.info("Starting data exchange loop... Press Ctrl+C to stop.")
     
@@ -155,7 +212,7 @@ async def main():
         if opc_client.client and opc_client._is_connected:
             await opc_client.disconnect()
         if etherip_client.driver and etherip_client.driver.connected:
-            etherip_client.driver.close()
+            await asyncio.to_thread(etherip_client.driver.close)
         logging.info("Shutdown complete.")
 
 if __name__ == "__main__":
